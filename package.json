@@ -1,0 +1,24 @@
+{
+  "name": "node-js-gg-sfff",
+  "version": "1.0.0",
+  "description": "WebPage",
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "funcaptcha": "^1.0.30",
+    "https": "^1.0.0",
+    "socks-proxy-agent": "^7.0.0",
+    "undici": "^5.11.0"
+  },
+  "devDependencies": {
+    "got": "^11.3.0",
+    "tape": "^4.7.0"
+  },
+  "license": "MIT"
+}
