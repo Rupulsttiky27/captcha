@@ -20,5 +20,8 @@
     "got": "^11.3.0",
     "tape": "^4.7.0"
   },
+   "engines": {
+    "node": ">=14"
+  },
   "license": "MIT"
 }
