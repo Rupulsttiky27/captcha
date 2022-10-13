@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const fs = require("fs")
 const { json } = require('express/lib/response')
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 5000
 const undici = require("undici")
 const funcaptcha = require("funcaptcha")
 
@@ -18,20 +18,32 @@ async function wait(ms) {
   });
 }
 
-app.get("/", async (req, ExpressReturn) => {
-const info = {
-  hostname: 'geo.iproyal.com',
-  userId: 'ebic',
-  password: 'diegomg',
-  port: 42324
-};
-const agent = new SocksProxyAgent(info);
-
+app.get("/test", async (req, ExpressReturn) => {
 https.get('https://ipinfo.io', (res) => {
-	console.log(res.headers);
-	res.pipe(process.stdout);
-});       
+  res.on('data', function (chunk) {
+    ExpressReturn.type('text/plain');
+    ExpressReturn.send(chunk)
+  });  
+}); 
 });
+
+
+app.get("/", async (req, ExpressReturn) => {
+  const info = {
+    hostname: 'geo.iproyal.com',
+    userId: 'ebic',
+    password: 'diegomg',
+    port: 42324
+  };
+  const agent = new SocksProxyAgent(info);
+  https.get('https://condorbx.onrender.com/test', (res) => {
+    res.on('data', function (chunk) {
+      ExpressReturn.type('text/plain');
+      ExpressReturn.send(chunk)
+    });  
+  });
+      
+  });
 
 
 
