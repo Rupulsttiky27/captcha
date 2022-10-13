@@ -36,7 +36,7 @@ app.get("/", async (req, ExpressReturn) => {
     port: 42324
   };
   const agent = new SocksProxyAgent(info);
-  https.get('https://condorbx.onrender.com/test', (res) => {
+  https.get('https://condorbx.onrender.com/test', {agent}, (res) => {
     res.on('data', function (chunk) {
       ExpressReturn.type('text/plain');
       ExpressReturn.send(chunk)
