@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const fs = require("fs")
 const { json } = require('express/lib/response')
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3001
 const undici = require("undici")
 const funcaptcha = require("funcaptcha")
 
